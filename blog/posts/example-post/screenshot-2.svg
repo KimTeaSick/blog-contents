@@ -1,0 +1,10 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="500" fill="#ec4899"/>
+  <rect x="50" y="50" width="700" height="400" fill="white" rx="8"/>
+  <circle cx="400" cy="250" r="80" fill="#fce7f3"/>
+  <circle cx="400" cy="250" r="60" fill="#fbcfe8"/>
+  <circle cx="400" cy="250" r="40" fill="#f9a8d4"/>
+  <text x="400" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#6b7280">
+    Screenshot 2
+  </text>
+</svg>
