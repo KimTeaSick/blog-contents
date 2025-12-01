@@ -1,7 +1,7 @@
 ---
 title: "ARGO 4S - 자동 매매 웹 서비스"
 description: "Next.js + FastAPI 기반 자동 매수·매도 시스템"
-date: "2025-12-01"
+date: "2024-05-12"
 tags: ["Next.js", "FastAPI", "SQLAlchemy", "React Query"]
 github: ""
 demo: ""
