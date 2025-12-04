@@ -1,0 +1,19 @@
+name: Revalidate Blog
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "blog/**"
+
+jobs:
+  revalidate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Revalidation
+        run: |
+          curl -X POST https://jo5eph.vercel.app/api/revalidate \
+            -H "Authorization: Bearer ${{ secrets.REVALIDATION_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d '{}'
