@@ -8,19 +8,17 @@ on:
       - "blog/**"
 
 jobs:
-  revalidate:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger Revalidation
+      - name: Trigger Vercel Deploy Hook
         run: |
-          response=$(curl -s -w "\nHTTP_CODE:%{http_code}" -X POST https://jo5eph.vercel.app/api/revalidate \
-            -H "Authorization: Bearer ${{ secrets.REVALIDATION_TOKEN }}" \
-            -H "Content-Type: application/json" \
-            -d '{}')
+          echo "🚀 Triggering Vercel deployment..."
+          response=$(curl -s -w "\nHTTP_CODE:%{http_code}" -X POST "${{ secrets.VERCEL_DEPLOY_HOOK_URL }}")
           echo "Response: $response"
           http_code=$(echo "$response" | grep HTTP_CODE | cut -d: -f2)
-          if [ "$http_code" != "200" ]; then
-            echo "Failed with HTTP code: $http_code"
+          if [ "$http_code" != "200" ] && [ "$http_code" != "201" ]; then
+            echo "❌ Failed with HTTP code: $http_code"
             exit 1
           fi
-          echo "✅ Successfully revalidated!"
+          echo "✅ Deployment triggered successfully!"
